@@ -19,18 +19,18 @@ void nop(stack_t **stack, unsigned int line_number)
  */
 void swap_nodes(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *temp;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		more_err(8, line_number, "swap");
-	tmp = (*stack)->next;
-	(*stack)->next = tmp->next;
-	if (tmp->next != NULL)
-		tmp->next->prev = *stack;
-	tmp->next = *stack;
-	(*stack)->prev = tmp;
-	tmp->prev = NULL;
-	*stack = tmp;
+	temp = (*stack)->next;
+	(*stack)->next = temp->next;
+	if (temp->next != NULL)
+		temp->next->prev = *stack;
+	temp->next = *stack;
+	(*stack)->prev = temp;
+	temp->prev = NULL;
+	*stack = temp;
 }
 
 /**
